@@ -1,0 +1,105 @@
+import os
+import sys
+import streamlit as st
+import pandas as pd
+
+# Ensure root path is available
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '.')))
+
+# Import converter logic from pipeline.py (same folder)
+from pipeline import load_artifacts, convert_bytes_to_csv
+
+# --- PAGE SETUP ---
+st.set_page_config(
+    page_title="GED to CSV Converter",
+    layout="wide",
+    page_icon="📂",
+)
+
+# --- CUSTOM HTML HEADER ---
+st.markdown(
+    """
+    <style>
+        /* Global background */
+        .stApp {
+            background-color: #0d1117;
+            color: #f0f0f0;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        /* Header section */
+        .hero {
+            text-align: center;
+            padding: 2rem 0 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .hero h1 {
+            font-size: 3rem;
+            color: #f9d342;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            color: #cfcfcf;
+            margin-top: -10px;
+        }
+
+        /* Upload card */
+        .upload-area {
+            background-color: #161b22;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            color: #999;
+            font-size: 0.9rem;
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+    </style>
+
+    <div class="hero">
+        <h1>📂 GEDCOM → CSV Converter</h1>
+        <p>Upload your .ged genealogy file and instantly generate a cleaned CSV file for analysis.</p>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
+
+
+
+
+
+# optional init
+load_artifacts()
+
+uploaded_file = st.file_uploader("Choose a GEDCOM file", type=["ged"])
+
+if uploaded_file:
+    st.info(f"Processing: {uploaded_file.name}")
+    try:
+        csv_text = convert_bytes_to_csv(uploaded_file.read())
+        st.success("Conversion successful!")
+
+        # Download button
+        st.download_button(
+            label="Download CSV File",
+            data=csv_text.encode("utf-8"),
+            file_name=uploaded_file.name.replace(".ged", ".csv"),
+            mime="text/csv"
+        )
+
+        # Preview
+        df = pd.read_csv(pd.io.common.BytesIO(csv_text.encode("utf-8")))
+        st.write("### Preview of results")
+        st.dataframe(df.head(20))
+    except Exception as e:
+        st.error(f"Error: {e}")
+
+
+
