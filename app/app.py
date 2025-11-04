@@ -11,7 +11,7 @@ from pipeline import load_artifacts, convert_bytes_to_csv
 
 # --- PAGE SETUP ---
 st.set_page_config(
-    page_title="GED to CSV Converter",
+    page_title="Free GED to CSV Converter",
     layout="wide",
     page_icon="📂",
 )
@@ -114,6 +114,8 @@ st.markdown(
         <p style="color:#cfcfcf;">
             Your uploaded files are processed locally — they are <b>never stored or shared</b>. 
             Once converted, you can download your CSV instantly and the temporary file is deleted.
+            
+            Thank you for using this site. This is a work in progress. Please Email X with any errors you get so I can adjust the code.
         </p>
     </div>
     """,
@@ -124,8 +126,16 @@ st.markdown(
 st.markdown(
     """
     <footer>
-        © 2025 GED Converter | Built by Olive Sawyer
+        © 2025 GED Converter
     </footer>
     """,
     unsafe_allow_html=True
 )
+
+
+
+
+
+
+#cd "C:\Users\olive\OneDrive\Desktop\model_webapp"
+#python -m streamlit run app/app.py
