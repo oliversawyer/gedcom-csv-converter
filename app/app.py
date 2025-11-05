@@ -20,7 +20,7 @@ st.set_page_config(
     page_icon="📁"
 )
 
-# --- GOOGLE ANALYTICS ---
+# --- Google Analytics tag ---
 GA_TAG = """
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FEE8NK2J8V"></script>
@@ -29,8 +29,17 @@ GA_TAG = """
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-FEE8NK2J8V');
+
+  // Re-fire pageview after Streamlit loads
+  document.addEventListener('DOMContentLoaded', function() {
+      gtag('event', 'page_view', {
+          page_title: document.title,
+          page_path: window.location.pathname
+      });
+  });
 </script>
 """
+
 components.html(GA_TAG, height=0)
 
 
