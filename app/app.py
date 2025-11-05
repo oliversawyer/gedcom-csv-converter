@@ -137,37 +137,23 @@ if uploaded_file:
     except Exception as e:
         st.error(f"Error: {e}")
 
+
+
 # --- ABOUT SECTION ---
 st.markdown(
     """
-    <div style="margin-top:3rem; padding:2rem; background-color:#161b22; border-radius:10px;">
-        <h2 style="color:#f9d342;">How It Works</h2>
-        <p style="color:#cfcfcf; font-size:1rem;">
-            This free converter processes GEDCOM (.ged) genealogy files and transforms them into a 
-            structured CSV format suitable for Excel, Tableau, or database import. 
-            <br><br>
-            It automatically extracts birth and death details, parent relationships, and generational lineages,
-            ensuring a clean, tabular format for deeper analysis.
+    <div style="margin-top:2rem; padding:1rem; background-color:#1b1f22; border-radius:8px;">
+        <h3 style="color:#f9d342; margin-bottom:0.5rem;">🔒 Privacy & Security</h3>
+        <p style="color:#cfcfcf; font-size:1rem; line-height:1.6;">
+            Your uploaded files are processed locally — they are <b>never stored or shared</b>.
+            Once converted, you can download your CSV instantly, and the temporary file is deleted.
         </p>
-
-        <h3 style="color:#f9d342;">Privacy & Security</h3>
-        <p style="color:#cfcfcf;">
-            Your uploaded files are processed locally — they are <b>never stored or shared</b>. 
-            Once converted, you can download your CSV instantly and the temporary file is deleted.
-            
-            Thank you for using this site. This is a work in progress. Please Email X with any errors you get so I can adjust the code.
+        <p style="color:#cfcfcf; font-size:1rem; line-height:1.6; margin-top:1rem;">
+            Thank you for using this site. This is a work in progress — please email 
+            <a href="mailto:YOUR_EMAIL@domain.com" style="color:#f9d342; text-decoration:none;">YOUR_EMAIL@domain.com</a>
+            with any feedback or issues so I can continue improving it.
         </p>
     </div>
-    """,
-    unsafe_allow_html=True
-)
-
-# --- FOOTER ---
-st.markdown(
-    """
-    <footer>
-        © 2025 GED Converter
-    </footer>
     """,
     unsafe_allow_html=True
 )
