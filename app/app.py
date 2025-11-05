@@ -30,12 +30,15 @@ GA_TAG = """
   gtag('js', new Date());
   gtag('config', 'G-FEE8NK2J8V');
 
-  // Explicitly send a page_view event
+  // Force page_view event after Streamlit fully loads
   window.addEventListener('load', function() {
-      gtag('event', 'page_view', {
-          page_title: document.title,
-          page_path: window.location.pathname
-      });
+      setTimeout(function() {
+          console.log("Sending GA page_view event...");
+          gtag('event', 'page_view', {
+              page_title: document.title,
+              page_path: window.location.pathname
+          });
+      }, 2000); // 2 second delay to ensure Streamlit loads
   });
 </script>
 """
