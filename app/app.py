@@ -9,6 +9,25 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '.')))
 # Import converter logic from pipeline.py (same folder)
 from pipeline import load_artifacts, convert_bytes_to_csv
 
+
+# --- Google Analytics tag ---
+st.markdown("""
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FEE8NK23BV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-FEE8NK23BV');
+    </script>
+""", unsafe_allow_html=True)
+
+
+
+
+
+
+
 # --- PAGE SETUP ---
 st.set_page_config(
     page_title="Free GED to CSV Converter",
