@@ -13,19 +13,25 @@ import streamlit.components.v1 as components
 # --- Google Analytics tag ---
 import streamlit.components.v1 as components
 
-# --- Google Analytics Tag ---
+# --- PAGE SETUP ---
+st.set_page_config(
+    page_title="Free GED to CSV Converter",
+    layout="wide",
+    page_icon="📁"
+)
+
+# --- GOOGLE ANALYTICS ---
 GA_TAG = """
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FEE8NK23BV"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FEE8NK2J8V"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-FEE8NK23BV');
+  gtag('config', 'G-FEE8NK2J8V');
 </script>
 """
 components.html(GA_TAG, height=0)
-
 
 
 
