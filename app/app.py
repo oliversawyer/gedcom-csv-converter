@@ -13,7 +13,7 @@ import streamlit.components.v1 as components
 # --- Google Analytics tag ---
 import streamlit.components.v1 as components
 
-# --- Google Analytics ---
+# --- Google Analytics Tag ---
 GA_TAG = """
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FEE8NK23BV"></script>
