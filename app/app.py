@@ -30,8 +30,8 @@ GA_TAG = """
   gtag('js', new Date());
   gtag('config', 'G-FEE8NK2J8V');
 
-  // Re-fire pageview after Streamlit loads
-  document.addEventListener('DOMContentLoaded', function() {
+  // Explicitly send a page_view event
+  window.addEventListener('load', function() {
       gtag('event', 'page_view', {
           page_title: document.title,
           page_path: window.location.pathname
