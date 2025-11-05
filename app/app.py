@@ -8,10 +8,10 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '.')))
 
 # Import converter logic from pipeline.py (same folder)
 from pipeline import load_artifacts, convert_bytes_to_csv
-
+import streamlit.components.v1 as components
 
 # --- Google Analytics tag ---
-st.markdown("""
+components.html("""
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-FEE8NK23BV"></script>
     <script>
@@ -20,8 +20,7 @@ st.markdown("""
       gtag('js', new Date());
       gtag('config', 'G-FEE8NK23BV');
     </script>
-""", unsafe_allow_html=True)
-
+""", height=0)
 
 
 
