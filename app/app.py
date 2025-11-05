@@ -11,16 +11,20 @@ from pipeline import load_artifacts, convert_bytes_to_csv
 import streamlit.components.v1 as components
 
 # --- Google Analytics tag ---
-components.html("""
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FEE8NK23BV"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-FEE8NK23BV');
-    </script>
-""", height=0)
+import streamlit.components.v1 as components
+
+# --- Google Analytics ---
+GA_TAG = """
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FEE8NK23BV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FEE8NK23BV');
+</script>
+"""
+components.html(GA_TAG, height=0)
 
 
 
