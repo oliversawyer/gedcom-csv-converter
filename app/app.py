@@ -27,16 +27,18 @@ GA_TAG = """
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  window.onload = function() {
+  window.addEventListener('load', function() {
       gtag('js', new Date());
-      gtag('config', 'G-FEE8NK2J8V', { 'send_page_view': true });
-      console.log("GA initialized");
-  };
+      gtag('config', 'G-FEE8NK2J8V', {
+        'send_page_view': true,
+        'debug_mode': true
+      });
+      console.log("✅ Google Analytics page_view sent");
+  });
 </script>
 """
 
 components.html(GA_TAG, height=0, scrolling=False)
-
 
 
 
