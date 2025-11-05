@@ -27,23 +27,15 @@ GA_TAG = """
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-FEE8NK2J8V');
-
-  // Force page_view event after Streamlit fully loads
-  window.addEventListener('load', function() {
-      setTimeout(function() {
-          console.log("Sending GA page_view event...");
-          gtag('event', 'page_view', {
-              page_title: document.title,
-              page_path: window.location.pathname
-          });
-      }, 2000); // 2 second delay to ensure Streamlit loads
-  });
+  window.onload = function() {
+      gtag('js', new Date());
+      gtag('config', 'G-FEE8NK2J8V', { 'send_page_view': true });
+      console.log("GA initialized");
+  };
 </script>
 """
 
-components.html(GA_TAG, height=0)
+components.html(GA_TAG, height=0, scrolling=False)
 
 
 
