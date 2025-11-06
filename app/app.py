@@ -13,18 +13,16 @@ import streamlit.components.v1 as components
 # --- Google Analytics tag ---
 import streamlit.components.v1 as components
 
-# --- PAGE SETUP ---
+
+# --- PAGE SETUP (Only call ONCE, and BEFORE GA tag) ---
 st.set_page_config(
     page_title="Free GED to CSV Converter",
     layout="wide",
     page_icon="📁"
 )
 
-# --- Google Analytics tag ---
-# Replace with your actual tag
+# --- Google Analytics tag (MUST be above all UI) ---
 GA_ID = "G-FEE8NK2J8V"
-
-# Inject Google Analytics tag
 st.markdown(f"""
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>
@@ -35,6 +33,7 @@ st.markdown(f"""
   gtag('config', '{GA_ID}');
 </script>
 """, unsafe_allow_html=True)
+
 
 
 
@@ -153,7 +152,7 @@ st.markdown(
 
 
 
-#cd "C:\Users\olive\OneDrive\Desktop\model_webapp"
+#cd "C:\Users\olive\OneDrive\Desktop\model_webapp\app"
 #git add app.py
 #git commit -m "Fix: replace gedcom with python-gedcom for deployment"
 #git push
