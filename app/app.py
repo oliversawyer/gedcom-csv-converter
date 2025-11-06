@@ -14,14 +14,14 @@ import streamlit.components.v1 as components
 import streamlit.components.v1 as components
 
 
-# --- PAGE SETUP (Only call ONCE, and BEFORE GA tag) ---
+# --- PAGE CONFIG (Only once, and must be first UI call) ---
 st.set_page_config(
     page_title="Free GED to CSV Converter",
     layout="wide",
     page_icon="📁"
 )
 
-# --- Google Analytics tag (MUST be above all UI) ---
+# --- GOOGLE ANALYTICS (MUST come immediately after set_page_config) ---
 GA_ID = "G-FEE8NK2J8V"
 st.markdown(f"""
 <!-- Google tag (gtag.js) -->
@@ -33,7 +33,6 @@ st.markdown(f"""
   gtag('config', '{GA_ID}');
 </script>
 """, unsafe_allow_html=True)
-
 
 
 # --- CUSTOM HTML HEADER ---
