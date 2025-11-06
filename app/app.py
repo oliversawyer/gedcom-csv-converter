@@ -21,24 +21,20 @@ st.set_page_config(
 )
 
 # --- Google Analytics tag ---
-GA_TAG = """
+# Replace with your actual tag
+GA_ID = "G-FEE8NK2J8V"
+
+# Inject Google Analytics tag
+st.markdown(f"""
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FEE8NK2J8V"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  window.addEventListener('load', function() {
-      gtag('js', new Date());
-      gtag('config', 'G-FEE8NK2J8V', {
-        'send_page_view': true,
-        'debug_mode': true
-      });
-      console.log("✅ Google Analytics page_view sent");
-  });
+  function gtag(){{dataLayer.push(arguments);}}
+  gtag('js', new Date());
+  gtag('config', '{GA_ID}');
 </script>
-"""
-
-components.html(GA_TAG, height=0, scrolling=False)
+""", unsafe_allow_html=True)
 
 
 
@@ -158,4 +154,6 @@ st.markdown(
 
 
 #cd "C:\Users\olive\OneDrive\Desktop\model_webapp"
-#python -m streamlit run app/app.py
+#git add app.py
+#git commit -m "Fix: replace gedcom with python-gedcom for deployment"
+#git push
