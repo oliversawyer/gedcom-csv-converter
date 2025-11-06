@@ -36,15 +36,6 @@ st.markdown(f"""
 
 
 
-
-
-# --- PAGE SETUP ---
-st.set_page_config(
-    page_title="Free GED to CSV Converter",
-    layout="wide",
-    page_icon="📂",
-)
-
 # --- CUSTOM HTML HEADER ---
 st.markdown(
     """
