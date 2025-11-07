@@ -20,7 +20,7 @@ st.set_page_config(
     layout="wide",
     page_icon="📁"
 )
-st.write("✅ DEPLOY CONFIRMATION: This text means the latest code deployed.")
+#st.write("✅ DEPLOY CONFIRMATION: This text means the latest code deployed.")
 
 # --- SEO META TAGS (Insert this right after GA code block) ---
 st.markdown("""
