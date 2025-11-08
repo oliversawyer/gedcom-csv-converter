@@ -1,0 +1,19 @@
+[server]
+enableCORS = false
+enableXsrfProtection = false
+
+[browser]
+gatherUsageStats = false
+
+[ui]
+hideTopBar = false
+
+[theme]
+base="light"
+
+[global]
+disableWatchdogWarning = true
+
+[runner]
+# ✅ THIS IS THE KEY SETTING
+magicEnabled = false
