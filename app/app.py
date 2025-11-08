@@ -22,33 +22,20 @@ st.set_page_config(
 )
 #st.write("✅ DEPLOY CONFIRMATION: This text means the latest code deployed.")
 
-# --- SEO META TAGS (Insert this right after GA code block) ---
-st.markdown("""
-<head>
-<title>Free GEDCOM to CSV Converter | Online GEDCOM File Converter</title>
-<meta name="description" content="Convert GEDCOM (.ged) genealogy family tree files to CSV instantly online. Free, fast, and private GEDCOM to CSV converter tool. No downloads required.">
-<meta name="keywords" content="GEDCOM converter, convert GED file, GED to CSV, genealogy data converter, family tree data export, ancestry file converter">
-<meta property="og:title" content="Free GEDCOM to CSV Converter">
-<meta property="og:description" content="Convert GED files to CSV instantly — free, fast, and privacy-friendly. No signup needed.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://gedcsvconverter.com">
-</head>
-""", unsafe_allow_html=True)
+GA_ID = "G-FEE8NK2J8V"  # <-- Replace this
 
-
-
-# --- GOOGLE ANALYTICS (MUST come immediately after set_page_config) ---
-GA_ID = "G-FEE8NK2J8V"
-st.markdown(f"""
+ga_script = f"""
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){{dataLayer.push(arguments);}}
-  gtag('js', new Date());
-  gtag('config', '{GA_ID}');
+window.dataLayer = window.dataLayer || [];
+function gtag(){{dataLayer.push(arguments);}}
+gtag('js', new Date());
+gtag('config', '{GA_ID}');
 </script>
-""", unsafe_allow_html=True)
+"""
+
+st.markdown(ga_script, unsafe_allow_html=True)
 
 
 # --- CUSTOM HTML HEADER ---
