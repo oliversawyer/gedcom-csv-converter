@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    {{ head }}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Google tag (gtag.js) -->
+    <title>Streamlit</title>
+
+    <!-- ✅ GOOGLE ANALYTICS -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-FEE8NK2J8V"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -11,9 +14,16 @@
       gtag('js', new Date());
       gtag('config', 'G-FEE8NK2J8V');
     </script>
+    <!-- ✅ END GA -->
 
+    <script>
+        window.prerenderReady = false
+    </script>
+    <script type="module" crossorigin src="/_static/js/index.CAj-7wZ.js"></script>
+    <link rel="stylesheet" crossorigin href="/_static/css/index.BpABIX9.css">
 </head>
 <body>
-    {{ body }}
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
 </body>
 </html>
