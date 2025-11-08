@@ -1,12 +1,13 @@
 [server]
 enableCORS = false
 enableXsrfProtection = false
+enableStaticServing = true   # ← Add this line
 
 [browser]
 gatherUsageStats = false
 
 [ui]
-hideTopBar = false
+hideTopBar = true
 
 [theme]
 base="light"
