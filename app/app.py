@@ -22,20 +22,6 @@ st.set_page_config(
 )
 #st.write("✅ DEPLOY CONFIRMATION: This text means the latest code deployed.")
 
-GA_ID = "G-FEE8NK2J8V"  # <-- Replace this
-
-ga_script = f"""
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){{dataLayer.push(arguments);}}
-gtag('js', new Date());
-gtag('config', '{GA_ID}');
-</script>
-"""
-
-st.markdown(ga_script, unsafe_allow_html=True)
 
 
 # --- CUSTOM HTML HEADER ---
@@ -131,7 +117,9 @@ st.markdown(
             Once converted, you can download your CSV instantly, and the temporary file is deleted.
         </p>
         <p style="color:#cfcfcf; font-size:1rem; line-height:1.6; margin-top:1rem;">
-            Thank you for using this site. This is a work in progress.
+            Thank you for using this site. This is a work in progress — please email 
+            <a href="mailto:YOUR_EMAIL@domain.com" style="color:#f9d342; text-decoration:none;">YOUR_EMAIL@domain.com</a>
+            with any feedback or issues so I can continue improving it.
         </p>
     </div>
     """,
