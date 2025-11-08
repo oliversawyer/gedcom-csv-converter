@@ -1,29 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Streamlit</title>
 
-  <title>GEDCOM → CSV Converter</title>
+    <!-- ✅ GOOGLE ANALYTICS -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FEE8NK2J8V"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-FEE8NK2J8V');
+    </script>
+    <!-- ✅ END GA -->
 
-  <!-- ✅ GOOGLE ANALYTICS -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FEE8NK2J8V"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-FEE8NK2J8V');
-  </script>
-  <!-- ✅ END GOOGLE ANALYTICS -->
-
-  <!-- ✅ REQUIRED STREAMLIT HEAD INJECTION -->
-  {{ head }}
+    <!-- ✅ REQUIRED STREAMLIT HEAD -->
+    {{ head }}
 </head>
-
 <body>
 
-  <!-- ✅ REQUIRED STREAMLIT APP CONTENT -->
-  {{ body }}
+    <!-- ✅ REQUIRED STREAMLIT APP RENDER -->
+    {{ body }}
 
 </body>
 </html>
