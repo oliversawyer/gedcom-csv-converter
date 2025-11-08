@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Streamlit</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>GEDCOM → CSV Converter</title>
 
   <!-- ✅ GOOGLE ANALYTICS -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FEE8NK2J8V"></script>
@@ -17,17 +17,20 @@
   <!-- ✅ REMOVE TOP WHITE BAR -->
   <style>
     .block-container {
-        padding: 0 !important;
+      padding-top: 0 !important;
     }
     header[data-testid="stHeader"] {
-        display: none !important;
+      display: none !important;
     }
   </style>
 
+  <!-- ✅ REQUIRED STREAMLIT HEAD -->
   {{ head }}
+
 </head>
 
 <body>
-  {{ body }}   <!-- ✅ Required Streamlit App Content -->
+  <!-- ✅ STREAMLIT APP CONTENT -->
+  {{ body }}
 </body>
 </html>
