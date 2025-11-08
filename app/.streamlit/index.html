@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Streamlit</title>
+    {{ head }}   <!-- ✅ This MUST come first -->
 
     <!-- ✅ GOOGLE ANALYTICS -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-FEE8NK2J8V"></script>
@@ -13,15 +11,10 @@
       gtag('js', new Date());
       gtag('config', 'G-FEE8NK2J8V');
     </script>
-    <!-- ✅ END GA -->
-
-    <!-- ✅ REQUIRED STREAMLIT HEAD -->
-    {{ head }}
+    <!-- ✅ END GOOGLE ANALYTICS -->
 </head>
+
 <body>
-
-    <!-- ✅ REQUIRED STREAMLIT APP RENDER -->
-    {{ body }}
-
+    {{ body }}   <!-- ✅ Required Streamlit App Content -->
 </body>
 </html>
