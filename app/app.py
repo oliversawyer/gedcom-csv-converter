@@ -1,27 +1,36 @@
-import os 
+import os  
 import sys
 import streamlit as st
 import pandas as pd
 
-# Ensure root path is available
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '.')))
-
-# Import converter logic from pipeline.py (same folder)
 from pipeline import load_artifacts, convert_bytes_to_csv
-import streamlit.components.v1 as components
 
-# --- Google Analytics tag ---
-import streamlit.components.v1 as components
-
-
-# --- PAGE CONFIG (Only once, and must be first UI call) ---
 st.set_page_config(
     page_title="Free GED to CSV Converter",
     layout="wide",
     page_icon="📁"
 )
-#st.write("✅ DEPLOY CONFIRMATION: This text means the latest code deployed.")
 
+# --- REMOVE WHITE STREAMLIT HEADER BAR ---
+hide_streamlit_header = """
+<style>
+header {visibility: hidden !important;}
+.block-container { padding-top: 0rem !important; }
+</style>
+"""
+st.markdown(hide_streamlit_header, unsafe_allow_html=True)
+
+# --- GOOGLE ANALYTICS ---
+st.markdown("""
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FEE8NK2J8V"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FEE8NK2J8V');
+</script>
+""", unsafe_allow_html=True)
 
 
 # --- CUSTOM HTML HEADER ---
@@ -118,7 +127,7 @@ st.markdown(
         </p>
         <p style="color:#cfcfcf; font-size:1rem; line-height:1.6; margin-top:1rem;">
             Thank you for using this site. This is a work in progress — please email 
-            <a href="mailto:YOUR_EMAIL@domain.com" style="color:#f9d342; text-decoration:none;">YOUR_EMAIL@domain.com</a>
+            <a href="mailto:COMINGSOON" style="color:#f9d342; text-decoration:none;">COMINGSOON</a>
             with any feedback or issues so I can continue improving it.
         </p>
     </div>
