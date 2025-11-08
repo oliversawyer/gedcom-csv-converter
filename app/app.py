@@ -21,62 +21,16 @@ header {visibility: hidden !important;}
 """
 st.markdown(hide_streamlit_header, unsafe_allow_html=True)
 
-# --- GOOGLE ANALYTICS ---
-st.markdown("""
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FEE8NK2J8V"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-FEE8NK2J8V');
-</script>
-""", unsafe_allow_html=True)
-
-
-# --- CUSTOM HTML HEADER ---
+# --- CUSTOM UI STYLING + HERO SECTION ---
 st.markdown(
     """
     <style>
-        /* Global background */
-        .stApp {
-            background-color: #0d1117;
-            color: #f0f0f0;
-            font-family: 'Segoe UI', sans-serif;
-        }
-
-        /* Header section */
-        .hero {
-            text-align: center;
-            padding: 2rem 0 1rem 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        .hero h1 {
-            font-size: 3rem;
-            color: #f9d342;
-        }
-        .hero p {
-            font-size: 1.1rem;
-            color: #cfcfcf;
-            margin-top: -10px;
-        }
-
-        /* Upload card */
-        .upload-area {
-            background-color: #161b22;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            color: #999;
-            font-size: 0.9rem;
-            margin-top: 3rem;
-            padding-top: 1rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
+        .stApp { background-color: #0d1117; color: #f0f0f0; font-family: 'Segoe UI', sans-serif; }
+        .hero { text-align: center; padding: 2rem 0 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .hero h1 { font-size: 3rem; color: #f9d342; }
+        .hero p { font-size: 1.1rem; color: #cfcfcf; margin-top: -10px; }
+        .upload-area { background-color: #161b22; padding: 2rem; border-radius: 10px; box-shadow: 0px 0px 8px rgba(0,0,0,0.3); }
+        footer { text-align: center; color: #999; font-size: 0.9rem; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1); }
     </style>
 
     <div class="hero">
@@ -87,19 +41,17 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# --- INITIALIZATION ---
+# --- LOAD CONVERSION LOGIC ---
 load_artifacts()
 
-# --- FILE UPLOADER ---
 uploaded_file = st.file_uploader("Choose a GEDCOM file", type=["ged"])
 
 if uploaded_file:
     st.info(f"Processing: {uploaded_file.name}")
     try:
         csv_text = convert_bytes_to_csv(uploaded_file.read())
-        st.success("Conversion successful!")
+        st.success("✅ Conversion successful!")
 
-        # Download button
         st.download_button(
             label="Download CSV File",
             data=csv_text.encode("utf-8"),
@@ -107,34 +59,25 @@ if uploaded_file:
             mime="text/csv"
         )
 
-        # Preview
         df = pd.read_csv(pd.io.common.BytesIO(csv_text.encode("utf-8")))
         st.write("### Preview of results")
         st.dataframe(df.head(20))
+
     except Exception as e:
         st.error(f"Error: {e}")
 
-
-
-# --- ABOUT SECTION ---
 st.markdown(
     """
     <div style="margin-top:2rem; padding:1rem; background-color:#1b1f22; border-radius:8px;">
         <h3 style="color:#f9d342; margin-bottom:0.5rem;">🔒 Privacy & Security</h3>
-        <p style="color:#cfcfcf; font-size:1rem; line-height:1.6;">
-            Your uploaded files are processed locally — they are <b>never stored or shared</b>.
-            Once converted, you can download your CSV instantly, and the temporary file is deleted.
-        </p>
-        <p style="color:#cfcfcf; font-size:1rem; line-height:1.6; margin-top:1rem;">
-            Thank you for using this site. This is a work in progress — please email 
-            <a href="mailto:COMINGSOON" style="color:#f9d342; text-decoration:none;">COMINGSOON</a>
-            with any feedback or issues so I can continue improving it.
+        <p style="color:#cfcfcf;">Your uploaded files are processed locally — they are <b>never stored or shared</b>.</p>
+        <p style="color:#cfcfcf; margin-top:1rem;">
+            For support or feedback, contact <span style="color:#f9d342;">COMINGSOON</span>.
         </p>
     </div>
     """,
     unsafe_allow_html=True
 )
-
 
 
 
