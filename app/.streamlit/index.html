@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <title>GEDCOM → CSV Converter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- ✅ GOOGLE ANALYTICS -->
+  <title>GED to CSV Converter</title>
+
+  <!-- ✅ Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FEE8NK2J8V"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -14,23 +15,13 @@
     gtag('config', 'G-FEE8NK2J8V');
   </script>
 
-  <!-- ✅ REMOVE TOP WHITE BAR -->
+  <!-- ✅ Hide Streamlit default top bar -->
   <style>
-    .block-container {
-      padding-top: 0 !important;
-    }
-    header[data-testid="stHeader"] {
-      display: none !important;
-    }
+    header[data-testid="stHeader"] { display: none !important; }
+    .block-container { padding-top: 1rem !important; }
   </style>
-
-  <!-- ✅ REQUIRED STREAMLIT HEAD -->
-  {{ head }}
-
 </head>
-
 <body>
-  <!-- ✅ STREAMLIT APP CONTENT -->
   {{ body }}
 </body>
 </html>

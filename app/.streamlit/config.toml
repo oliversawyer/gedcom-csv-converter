@@ -1,7 +1,7 @@
 [server]
 enableCORS = false
 enableXsrfProtection = false
-enableStaticServing = true
+enableStaticServing = false
 headless = true  # <--- REQUIRED for custom index.html
 
 [browser]
