@@ -131,9 +131,7 @@ st.markdown(
             Once converted, you can download your CSV instantly, and the temporary file is deleted.
         </p>
         <p style="color:#cfcfcf; font-size:1rem; line-height:1.6; margin-top:1rem;">
-            Thank you for using this site. This is a work in progress — please email 
-            <a href="mailto:YOUR_EMAIL@domain.com" style="color:#f9d342; text-decoration:none;">YOUR_EMAIL@domain.com</a>
-            with any feedback or issues so I can continue improving it.
+            Thank you for using this site. This is a work in progress.
         </p>
     </div>
     """,
