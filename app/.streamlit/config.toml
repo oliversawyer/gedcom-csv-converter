@@ -1,8 +1,6 @@
 [server]
-enableCORS = false
-enableXsrfProtection = false
-enableStaticServing = false
-headless = true  # <--- REQUIRED for custom index.html
+enableStaticServing = true
+headless = true
 
 [browser]
 gatherUsageStats = false
@@ -11,10 +9,7 @@ gatherUsageStats = false
 hideTopBar = true
 
 [theme]
-base = "light"
+base = "dark"
 
 [global]
 disableWatchdogWarning = true
-
-[runner]
-magicEnabled = false

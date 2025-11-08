@@ -6,7 +6,7 @@
 
   <title>GED to CSV Converter</title>
 
-  <!-- ✅ Google Analytics -->
+  <!-- ✅ GOOGLE ANALYTICS -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FEE8NK2J8V"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -15,12 +15,9 @@
     gtag('config', 'G-FEE8NK2J8V');
   </script>
 
-  <!-- ✅ Hide Streamlit default top bar -->
-  <style>
-    header[data-testid="stHeader"] { display: none !important; }
-    .block-container { padding-top: 1rem !important; }
-  </style>
+  {{ head }}
 </head>
+
 <body>
   {{ body }}
 </body>
