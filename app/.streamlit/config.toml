@@ -4,12 +4,17 @@ headless = true
 
 [browser]
 gatherUsageStats = false
+serverAddress = "0.0.0.0"
 
 [ui]
 hideTopBar = true
 
 [theme]
-base = "dark"
+base = "light"
 
 [global]
 disableWatchdogWarning = true
+
+# 👇 THIS IS THE CRITICAL FLAG
+[components]
+frontEndOverride = "www"
