@@ -12,6 +12,21 @@ st.set_page_config(
     page_icon="📁"
 )
 
+
+GA_TAG = """
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FEE8NK2J8V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-FEE8NK2J8V');
+</script>
+"""
+
+st.markdown(GA_TAG, unsafe_allow_html=True)
+
+
 # --- REMOVE WHITE STREAMLIT HEADER BAR ---
 hide_streamlit_header = """
 <style>
