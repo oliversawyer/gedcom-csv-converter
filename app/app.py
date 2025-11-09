@@ -6,6 +6,9 @@ import pandas as pd
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '.')))
 from pipeline import load_artifacts, convert_bytes_to_csv
 
+st.write("Streamlit version:", st.__version__)
+
+
 st.set_page_config(
     page_title="Free GED to CSV Converter",
     layout="wide",
