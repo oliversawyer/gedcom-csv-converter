@@ -42,11 +42,10 @@ const interval = setInterval(() => {
 GA_TAG = """
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FEE8NK2J8V"></script>
 <script>
-  window.parent.dataLayer = window.parent.dataLayer || [];
-  function gtag(){window.parent.dataLayer.push(arguments);}
+  window.dataLayer = window.dataLayer || [];   // ✅ use window, not window.parent
+  function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-FEE8NK2J8V', { send_page_view: true });
-  gtag('event', 'page_view');
+  gtag('config', 'G-FEE8NK2J8V', { send_page_view: true });  // ✅ pageview enabled
 </script>
 """
 from streamlit.components.v1 import html
