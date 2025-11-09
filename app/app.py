@@ -14,7 +14,6 @@ st.set_page_config(
 
 
 GA_TAG = """
-<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FEE8NK2J8V"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -24,7 +23,8 @@ GA_TAG = """
 </script>
 """
 
-st.markdown(GA_TAG, unsafe_allow_html=True)
+st.html(GA_TAG)
+
 
 
 # --- REMOVE WHITE STREAMLIT HEADER BAR ---
