@@ -10,11 +10,11 @@ serverAddress = "0.0.0.0"
 hideTopBar = true
 
 [theme]
-base = "light"
+base = "dark"
 
 [global]
 disableWatchdogWarning = true
 
 # 👇 THIS IS THE CRITICAL FLAG
-[components]
+[client]
 frontEndOverride = "www"
