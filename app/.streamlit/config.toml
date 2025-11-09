@@ -16,5 +16,5 @@ base = "dark"
 disableWatchdogWarning = true
 
 # 👇 THIS IS THE CRITICAL FLAG
-[client]
-frontEndOverride = "www"
+[components]
+frontendOverride = "www"

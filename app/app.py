@@ -24,7 +24,8 @@ GA_TAG = """
 </script>
 """
 
-st.markdown(GA_TAG, unsafe_allow_html=True)
+from streamlit.components.v1 import html
+html(GA_TAG, height=0)
 
 
 # --- REMOVE WHITE STREAMLIT HEADER BAR ---
