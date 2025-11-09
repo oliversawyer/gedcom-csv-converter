@@ -3,19 +3,17 @@ import sys
 import streamlit as st
 import pandas as pd
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '.')))
-from pipeline import load_artifacts, convert_bytes_to_csv
-
-st.write("Streamlit version:", st.__version__)
-
-
+# ✅ set_page_config MUST be first
 st.set_page_config(
     page_title="Free GED to CSV Converter",
     layout="wide",
     page_icon="📁"
 )
 
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '.')))
+from pipeline import load_artifacts, convert_bytes_to_csv
 
+# ✅ Inject GA AFTER the page config—not before
 GA_TAG = """
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FEE8NK2J8V"></script>
 <script>
@@ -26,7 +24,8 @@ GA_TAG = """
 </script>
 """
 
-st.html(GA_TAG)
+from streamlit.components.v1 import html
+html(GA_TAG, height=0)
 
 
 
