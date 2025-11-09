@@ -21,13 +21,20 @@ st.set_page_config(
 
 # ✅ REMOVE STREAMLIT IFRAME SANDBOX (allows GA to send data)
 st.markdown("""
-    <script>
-        try {
-            // remove sandbox so GA can run at top-level
-            const iframe = window.parent.document.querySelector('iframe[sandbox]');
-            if (iframe) iframe.removeAttribute('sandbox');
-        } catch (e) {}
-    </script>
+<script>
+const interval = setInterval(() => {
+    try {
+        const iframes = window.parent.document.getElementsByTagName('iframe');
+        for (let iframe of iframes) {
+            if (iframe.hasAttribute('sandbox')) {
+                iframe.removeAttribute('sandbox');
+                console.log("✅ Sandbox removed — Analytics tracking enabled");
+                clearInterval(interval);
+            }
+        }
+    } catch (e) { /* Ignore until allowed */ }
+}, 200);
+</script>
 """, unsafe_allow_html=True)
 
 
