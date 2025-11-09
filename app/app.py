@@ -20,7 +20,10 @@ GA_TAG = """
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-FEE8NK2J8V');
+
+  // ✅ Explicitly send page view
+  gtag('config', 'G-FEE8NK2J8V', { send_page_view: true });
+  gtag('event', 'page_view');
 </script>
 """
 
