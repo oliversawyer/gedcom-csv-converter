@@ -3,30 +3,45 @@ import sys
 import streamlit as st
 import pandas as pd
 
-# ✅ set_page_config MUST be first
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '.')))
+from pipeline import load_artifacts, convert_bytes_to_csv
+
+
+
+
+# ✅ set_page_config MUST be the first Streamlit command after imports
 st.set_page_config(
     page_title="Free GED to CSV Converter",
     layout="wide",
     page_icon="📁"
 )
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '.')))
-from pipeline import load_artifacts, convert_bytes_to_csv
 
-# ✅ Inject GA AFTER the page config—not before
+
+
+# ✅ REMOVE STREAMLIT IFRAME SANDBOX (allows GA to send data)
+st.markdown("""
+    <script>
+        try {
+            // remove sandbox so GA can run at top-level
+            const iframe = window.parent.document.querySelector('iframe[sandbox]');
+            if (iframe) iframe.removeAttribute('sandbox');
+        } catch (e) {}
+    </script>
+""", unsafe_allow_html=True)
+
+
+
 GA_TAG = """
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FEE8NK2J8V"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  window.parent.dataLayer = window.parent.dataLayer || [];
+  function gtag(){window.parent.dataLayer.push(arguments);}
   gtag('js', new Date());
-
-  // ✅ Explicitly send page view
   gtag('config', 'G-FEE8NK2J8V', { send_page_view: true });
   gtag('event', 'page_view');
 </script>
 """
-
 from streamlit.components.v1 import html
 html(GA_TAG, height=0)
 
