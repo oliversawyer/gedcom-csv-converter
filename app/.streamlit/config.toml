@@ -1,5 +1,6 @@
 [server]
 enableStaticServing = true
+staticDir = "www"
 headless = true
 
 [browser]
@@ -14,7 +15,3 @@ base = "dark"
 
 [global]
 disableWatchdogWarning = true
-
-# 👇 THIS IS THE CRITICAL FLAG
-[components]
-frontendOverride = "www"
